@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>TerraGames - Каталог популярных игр</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1 id="logoBtn" style="cursor: pointer;">🎮 TerraGames</h1>
+            </div>
+            <nav class="nav">
+                <a href="#games" class="nav-link">Игры</a>
+                <a href="#news" class="nav-link">Новости</a>
+                <a href="about.html" class="nav-link">О нас</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="hero-title">Откройте мир игр</h2>
+            <p class="hero-subtitle">Ваш проводник в мире лучших игр</p>
+            <div class="hero-description">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Быстрый поиск</h3>
+                    <p>Найдите интересующую игру мгновенно по жанру: шутеры, RPG, экшен, выживание</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Всё в одном месте</h3>
+                    <p>Системные требования, рейтинги, описания — вся важная информация на одной странице</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Простой и красивый</h3>
+                    <p>Минималистичный дизайн без лишней информации. Никакой рекламы, только нужные данные</p>
+                </div>
+            </div>
+            <a href="#games" class="hero-btn">Исследовать</a>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="news-section">
+        <div class="section-header">
+            <div class="container">
+                <h2 class="section-title">Новости и обновления</h2>
+                <p class="section-subtitle">Последние события в мире игр</p>
+            </div>
+        </div>
+        <div class="container">
+            <div class="news-grid" id="newsGrid">
+                <!-- News will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <section id="games" class="games-section">
+        <div class="section-header">
+            <div class="container">
+                <h2 class="section-title">Популярные игры</h2>
+                <div class="filter-container">
+                    <div class="filter-group">
+                        <h3 class="filter-group-title">По жанру:</h3>
+                        <div class="filter-bar">
+                            <button class="filter-btn active" data-filter="all">Все игры</button>
+                            <button class="filter-btn" data-filter="shooter">Шутеры</button>
+                            <button class="filter-btn" data-filter="rpg">RPG</button>
+                            <button class="filter-btn" data-filter="action">Экшен</button>
+                            <button class="filter-btn" data-filter="survival">Выживание</button>
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <h3 class="filter-group-title">Сортировка:</h3>
+                        <div class="filter-bar">
+                            <button class="sort-btn" data-sort="rating">⭐ По рейтингу</button>
+                            <button class="sort-btn" data-sort="year">📅 По году</button>
+                            <button class="sort-btn" data-sort="name">🔤 По названию</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="games-grid" id="gamesGrid"></div>
+        </div>
+    </section>
+
+    <div id="gameModal" class="modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div class="modal-background" id="modalBackground"></div>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h2 id="modalTitle"></h2>
+                    <div class="modal-rating">
+                        <span class="rating-stars" id="modalStars"></span>
+                        <span class="rating-value" id="modalRating"></span>
+                    </div>
+                </div>
+                <div class="modal-info">
+                    <div class="info-card">
+                        <h3>📝 Описание</h3>
+                        <p id="modalDescription"></p>
+                    </div>
+                    <div class="info-card">
+                        <h3>💻 Минимальные требования</h3>
+                        <ul id="modalMinReq"></ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>🚀 Рекомендуемые требования</h3>
+                        <ul id="modalMaxReq"></ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>ℹ️ Информация</h3>
+                        <div class="game-meta">
+                            <p><strong>Жанр:</strong> <span id="modalGenre"></span></p>
+                            <p><strong>Разработчик:</strong> <span id="modalDeveloper"></span></p>
+                            <p><strong>Дата выхода:</strong> <span id="modalRelease"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
